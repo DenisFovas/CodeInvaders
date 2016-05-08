@@ -1,0 +1,5 @@
+var meniu = {};
+
+function formareMeniu() {
+
+}

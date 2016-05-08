@@ -1,0 +1,115 @@
+Idei:
+	~ Joc platformer/space shother 2D
+		$ Fundal
+			# Stele
+			# Miscarea stelelor 
+				& V-a fi complet random, de cum incepe ecranul
+				& Rezolvat problema cu lag la stele
+		$ Creaza nava principala(cea a ucatorului) 
+		$ Creaza inamicii
+			# Gimp = mod de a face pixel art pentru GameArt-ul jocului
+				& Creare un inamic, se va repeta pe tot parcursul jocului
+				& Necesitate de a face inamicul mai mare decat jucatorul
+					$ Un inamic realizat (Inamic_1.jpg)
+					$ Creare explozie inamici (Inamic-Explozie.jpg)
+		$ Implementeaza imaginile
+			# Resize imagini (vezi resurse)
+				& In special nava, v-or trebui marite
+				& Resize in functie de ecran
+		$ Algortim de aflare taste 
+			# probaTaste.html => contine informatii legate de exact tastele, folosirea lor in cadrul apasarii cat si un mod de a alege exact tasta potrivita pentru actiune
+			# Realizat un mod de a crea alerte cand tastam ceva.
+			# Urmeaza creare unui algoritm in care putem sa miscam un obiect
+		$ Algortim de miscare a imaginilor in functie de taste
+			# "onkeydown" se misca nava in functie de tasta apasata
+			# "onkeyup" se opreste din miscare
+		$ Algoritm care va misca inamicii (stanga, dreapta)/(random)
+			# Un timer improvizat asigura miscarea permanenta a inamicilor
+		@ Creaza meteorit(inamicMeteorit) care v-a aparea la un nivel si v-a trebui ca nava principala sa ii fereasca
+		@ Algoritm care va lansa random pe ecran inamicMeteorit pe coordonata x=Math.random, y=-10, si coordonata y v-a creste pana iese de pe ecran, deodata cu o constanta care v-a fi adaugata lui x
+		@ Scorul pentru a trece la nivelul urmator trebuie setat
+			# Posibil un scor de 3000 pentru NextLevel();
+		@ Exista "combustibil"
+			# Daca "combustibil" == 0 atunci intri intr-un mic quick_time_event care te pune sa strangi monede; fiecare moneda iti ofera combustibil;   
+			# Monedele v-or sta putin timp pe ecran, aproximativ 5 secunde
+			# Pentru fiecare moneda ratata => scor scazut
+			# Pentru o culegere completa de monezi => +1 playerLife
+			# Disponibilitate de a folosi monedele la un Shop();
+		@ Mod daca playerul alege, fundal = negru
+			# Proprietati css, schimb clasa de la fundal cu una prestabilita in codul css
+			# Clasa prestabilita va face fundalul complet negru, se elimina 15% (aproximativ) din nevoia de calcul a browserului, jocul mergand mai lin
+		@ Fundalul va fi complet pe tot ecranul de joc, momentan este setat la o marime mica deoarece se lucreaza la algortimi, apoi se va lucru la marimea tuturor imaginilor pentru un ecran
+		@ Va fi un shop
+			# Itemele din el vor avea efecte asupra: damage
+													 viata
+													 rezistenta
+													 armura
+													 inamici
+													 viteza
+													 etc.
+			# Shop-ul va fi din baze de date.
+				& Studiaza baze de date pentru a analiza exact ce si cum se va lucra pentru itemele cumparate.
+			# Se vor cumpara prin intermediul acelui mini-game cu monede, o parte fiind pentru conbustibil + munitie, restul fiind folositi la cumparari
+		
+
+		@ Tutorial bun
+			# Acesta va avea putin text
+			# Primul boss, cel mai usor va fi cel de introducere
+			# Intai miscarea + trasul
+			# Apoi introducem inamicii pe rand
+			# Apoi la final combustibil
+			# Apoi shop
+	
+
+		@ Story ??
+			# Folosire de nume mitologice pentru a atrage oamenii, sa fie intrigati de poveste
+
+
+Studiat:
+	~ Algoritm taste, miscarea navei
+		@ jQuery
+		$ DONE
+			$ Miscarea navei este prin intermediul jQuery
+			$ Modul prin care se face lansarea 'gloantelor' este prin crearea lor, apoi prin stergerea 'urmelor' lor, de la coordonatele lor, pana la dimensiunea canvas-ului lor propriu
+	~ Algortim repetitiv miscare inamici
+		@ Repetare stanga dreapta
+		$ DONE
+			$ Am 2 contori. Primul contor reprezinta drumul din stanga spre dreapta. Preferabil este sa fie jumate din al doilea contor. Al doilea contor, este pus ca fiind o parte din ecran, ca sa se poata realiza o miscare a navelor pana la un punct. Apoi navele se vor deplasa in directia opusa. Problema este, in caz ca jucatorul are un calcuator mai bun, inamicii se vor misca mai rapid fata de alte calculatoare, deoarece se v-a calcula totul mai repede.
+
+	~ Algoritm schimbare fundal
+		@ ??
+	~ Algoritm mini-game pentru combustibil
+	~ Studiu joc open source: sprite-animation-demos-1 din folderul ProgramareWeb
+	~ Studiu implementari joc
+	~ Web hosting
+	~ NodeJS ???
+	~ Baze de date
+
+	
+
+Resurse:
+	~ http://www.williammalone.com/articles/
+	~ https://www.youtube.com/playlist?list=PLoYCgNOIyGACnrXwo5HMCfOH9VT05znGv
+	~ http://www.ajaxblender.com/howto-resize-image-proportionally-using-javascript.html
+	~ https://www.youtube.com/watch?v=OsFuYEK4RnI&index=6&list=PLQw6R3B2BPb29ktkWaiIzB3JBWguN7bER		// playlist canvas
+	~ http://www.masswerk.at/JavaPac/pacman-howto.html
+	~ http://www.policyalmanac.org/games/aStarTutorial.htm
+	~ https://en.wikipedia.org/wiki/Flood_fill
+	~ https://www.reddit.com/r/gamedev/comments/j0blg/game_art_tips_on_making/c2841zv
+	~ http://karnakgames.com/wp/2010/10/gimp-for-pixel-art-shortcuts-setup-and-tips/
+	~ http://www.dinofarmgames.com/the-art-barn-the-cool-rules-of-spriting/
+	~ https://www.youtube.com/watch?v=YCI8uqePkrc // tutorial particule
+	~ http://www.w3schools.com/jsref/event_onkeydown.asp
+	~ https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
+	~ http://stackoverflow.com/questions/3476000/javascript-key-handling-and-browser-compatibility		//taste
+	~ http://stackoverflow.com/questions/15344104/smooth-character-movement-in-canvas-game-using-keyboard-controls // pentru a identifica tastele
+	~ https://www.youtube.com/playlist?list=PLoYCgNOIyGACnrXwo5HMCfOH9VT05znGv
+		// playlist pentru a intelege JavaScript + Jquery
+	~ http://stackoverflow.com/questions/7212103/how-to-move-an-image-around-with-arrow-keys-javascript
+		// Key movement
+		
+Bugs:
+	~ Navele nu se ditrug in ordinea corespunzatoare
+		@Verifica caietul Schite pentur a vedea o posibila rezolvare (Doar la master se aplica asta..)
+		> Done. Nu a fost scris bine algoritmul de coliziune.
+

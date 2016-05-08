@@ -1,0 +1,18 @@
+Am nevoie de anumite butoane:
+	- Play
+	- Options
+	- Exit? 
+
+Va fi creat prin DOM sau prin Canvas?
+
+Cum o sa fac design-u?
+
+		- 
+	> Text
+		- Va avea un efect cand se va pune mouse-ul pe el?
+		- Se va schimba interfata prin sageti?
+		- 
+Cum o sa fie logica?
+
+	@ O sa fie text based
+	@ 
