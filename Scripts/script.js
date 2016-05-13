@@ -167,7 +167,9 @@
 		}
 
 		/**
-		 * Pentru a incepe jocul, este nevoie de a forma fundalul anterior. Functia aceasta formeaza stelele pentru background, formand astfel o iluzie asupra fundalului, de parca ar fi deja in spatiu.
+		 * Pentru a incepe jocul, este nevoie de a forma fundalul anterior.
+		 * Functia aceasta formeaza stelele pentru background, formand astfel
+		 * o iluzie asupra fundalului, de parca ar fi deja in spatiu.
 		 * @param  {integer} numar -> va stibili numarul de stele care va
 		 *     aparea la inceputul jocului
 		 */
@@ -230,36 +232,35 @@
 				for (var j = 1; j <= game.numarInamiciPeColoana; j++) {
 		            // Obiectul de tip enemy. Acesta este definit temporal, urmand sa fie pus intr-un alt mod de a fi 
 		            var enemy = {
-		                    x: 50 + i * 100, // Coordonatele te tip x
-		                    y: j * 65,	// Coordonatele de tip y
-		                    width: 50,	// Latimea inamicului
-		                    height: 50,	// Latimea inamicului
-		                    speed: 5,	// Viteza cu care inamicul se va misca
-		                    image: 4,	// ID-ul imaginii corespunzatoare fiecarui inamic
-		                    mort: false, // Mod de a verifica daca inamicul mai poate fi afisat.
-		                    timpMoarte: 0,	// Proprietate de a putea afisa imaginea de explozie.
-		                    // Tipul imaginii este unul random, putand avea doar
-		                    // valoarea 0, 1, 2 sau 3. Acest 'tip', este necesar
-		                    // pentru a putea defini anumite proprietati in plus
-		                    // pentru fiecare inamic in parte.
-		                    tip: Math.round(Math.random() * 3),	
-		                    // Hp-ul inamicului. Este predefinit drept 0, astfel ca pe
-		                    // urma sa aibe parte de o stabilire exacta in functie de
-		                    // tipul fiecaruia
-		                    hp: 0,
-		                    //Hp-ul maxim petru fiecare inamic. Avem nevoie de aceasta
-		                    //proprietate pentru a putea afisa bara de viata a
-		                    //inamicilor. Este predefinita cu 0, pentru a putea fi
-		                    //definita in functie de tipul inamicului.
-		                    hpmax: 0,
-		                    // Sansa cu care un inamic o sa poata sa traga. Deocamdata
-		                    // este predefinita cu 0, pentru a putea fi predefina pe
-		                    // urma in alte valori in functie de tipul inamicului.
-		                    sansa: 0,
-		                    // Aceasta proprietate ne va spune exact cum se va misca
-		                    // fiecare inamic in parte. Aceasta proprietate se schimba
-		                    // in functie de nivel.
-		                    movement: 1,
+	                    x: 50 + i * 100, // Coordonatele te tip x
+	                    y: j * 65,	// Coordonatele de tip y
+	                    width: 50,	// Latimea inamicului
+	                    height: 50,	// Latimea inamicului
+	                    speed: 5,	// Viteza cu care inamicul se va misca
+	                    mort: false, // Mod de a verifica daca inamicul mai poate fi afisat.
+	                    timpMoarte: 0,	// Proprietate de a putea afisa imaginea de explozie.
+	                    // Tipul imaginii este unul random, putand avea doar
+	                    // valoarea 0, 1, 2 sau 3. Acest 'tip', este necesar
+	                    // pentru a putea defini anumite proprietati in plus
+	                    // pentru fiecare inamic in parte.
+	                    tip: Math.round(Math.random() * 3),	
+	                    // Hp-ul inamicului. Este predefinit drept 0, astfel ca pe
+	                    // urma sa aibe parte de o stabilire exacta in functie de
+	                    // tipul fiecaruia
+	                    hp: 0,
+	                    //Hp-ul maxim petru fiecare inamic. Avem nevoie de aceasta
+	                    //proprietate pentru a putea afisa bara de viata a
+	                    //inamicilor. Este predefinita cu 0, pentru a putea fi
+	                    //definita in functie de tipul inamicului.
+	                    hpmax: 0,
+	                    // Sansa cu care un inamic o sa poata sa traga. Deocamdata
+	                    // este predefinita cu 0, pentru a putea fi predefina pe
+	                    // urma in alte valori in functie de tipul inamicului.
+	                    sansa: 0,
+	                    // Aceasta proprietate ne va spune exact cum se va misca
+	                    // fiecare inamic in parte. Aceasta proprietate se schimba
+	                    // in functie de nivel.
+	                    movement: 1,
 		            }
 		            // In functie de tipul inamicului, refacem valorile de: hp, hpmax,
 		            // sansa. Fiecare inamic are parte de presetari diferite.
@@ -736,11 +737,14 @@
 							game.enemies[contorInamic].mort = true;
 						}
 						// Stergem inamicul curent de pe ecran distrus.
-						game.ctxBullet.clearRect(game.proiectilPlayer[contorProiectil].x, game.proiectilPlayer[contorProiectil].y, game.proiectilPlayer[contorProiectil].width + 5, game.proiectilPlayer[contorProiectil].height + 10)
+						game.ctxBullet.clearRect(game.proiectilPlayer[contorProiectil].x,
+							game.proiectilPlayer[contorProiectil].y,
+							game.proiectilPlayer[contorProiectil].width + 5,
+							game.proiectilPlayer[contorProiectil].height + 10);
 						// Il eliminam din vectorul de inamici.
 						game.proiectilPlayer.splice(contorProiectil, 1);
-	 		 	 		// Continuam cu algoritmul.
-	 		 	 		continue;
+				 	 		// Continuam cu algoritmul.
+				 	 		continue;
 					}
 				}
 			}
@@ -755,7 +759,7 @@
 				// Verificam daca suntem la unul cu nivelele cu mai multi inamici
 				if(level != 4){
 					// Daca inamicul curent are sansa de 20% sa traga. Daca reuseste,
-					if(Math.random() * 1 >= 0.8){
+					if(Math.random() * 1 <= 0.2){
 						// Verificam nivelul.
 						// Daca suntem la nivelul 1, 
 						if(level == 1){
@@ -863,7 +867,11 @@
 					// Variabila de stocare a informatiilor inamicului.
 					var inamic = game.enemies[i];
 					// Desenam inamicul.
-					game.ctxInamici.drawImage(game.images[inamic.tip + 4], inamic.x, inamic.y, inamic.width, inamic.height);
+					if (inamic.mort === true) {
+						game.ctxInamici.drawImage(game.images[2], inamic.x, inamic.y, inamic.width, inamic.height);
+					} else {
+						game.ctxInamici.drawImage(game.images[inamic.tip + 4], inamic.x, inamic.y, inamic.width, inamic.height);
+					}
 					// Salvam ultimele desene ale inamicilor cu informatiile
 					// necesare, deoarece urmeaza sa pune 'hp-bar' la fiecare
 					// inamic.
@@ -968,17 +976,17 @@
 		// Apelul functiei care incepe sa incarce imaginile in program. Incarcam
 		// fiecare imagine in parte.
 		incarcareImagini([
-			"Images/player/Nava1.png", 
-			"Images/player/Glont.png",
-			"Images/inamici/Inamic-Explozie.png",
-			"Images/inamici/big-data.png",
-			"Images/inamici/cplusplus.png",
-			"Images/inamici/csharp.png",
-			"Images/inamici/Java.png",
-			"Images/inamici/php.png",
-			"Images/proiectileInamici/code.png",
-			"Images/proiectileInamici/code_ok.png",
-			"Images/proiectileInamici/code_bun.png"
+			"Images/player/Nava1.png",				// 0  
+			"Images/player/Glont.png",				// 1 
+			"Images/inamici/Inamic-Explozie.png",	// 2
+			"Images/inamici/big-data.png",			// 3 	Imagine Boss
+			"Images/inamici/cplusplus.png",			// 4 
+			"Images/inamici/csharp.png",			// 5
+			"Images/inamici/Java.png",				// 6
+			"Images/inamici/php.png",				// 7
+			"Images/proiectileInamici/code.png",	// 8
+			"Images/proiectileInamici/code_ok.png",	// 9
+			"Images/proiectileInamici/code_bun.png"	// 10
 		]);
 		// Apelul functiei care incepe programul in sine.
 		startGame();
