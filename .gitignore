@@ -46,6 +46,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Archive
+*.7z
+*.rar
+*.tar.gz
 
 # Github
 .gitignore
